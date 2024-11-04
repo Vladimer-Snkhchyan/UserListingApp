@@ -1,0 +1,88 @@
+
+.users-list {
+    margin-top: 117px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    border: white;
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+.column-name-container {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: auto;
+    grid-row-gap: 2px;
+    background-color: lightgray;
+    border: whitesmoke;
+    border-radius: 10px 10px 0 0;
+}
+
+.column-name {
+    color: black;
+    text-align: center;
+    font-size: 22px;
+
+}
+
+.user-box {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: auto;
+    grid-row-gap: 1px;
+
+}
+
+.box-entity {
+    margin-top: 2px;
+    margin-bottom: 40px;
+    background-color: whitesmoke;
+    text-align: center;
+    align-content: center;
+    height: 100%;
+    font-size: 19px;
+}
+.action-icon:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+
+
+
+.list-scroll-block {
+    margin-top: 3px;
+    background-color: whitesmoke;
+    display: flex;
+}
+
+.add-new-user-button {
+    flex: 1;
+    background-color: whitesmoke;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem .25rem 0 0;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+
+.add-new-user-button:hover {
+    cursor: pointer;
+    opacity: 50%;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.paginator-panel {
+    flex:8;
+    background-color: whitesmoke;
+}
+
+
