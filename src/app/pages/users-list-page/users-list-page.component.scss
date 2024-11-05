@@ -19,6 +19,7 @@
     background-color: lightgray;
     border: whitesmoke;
     border-radius: 10px 10px 0 0;
+    margin-bottom: 2px;
 }
 
 .column-name {
@@ -28,18 +29,34 @@
 
 }
 
-.user-box {
+.user-card-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1px
+
+}
+
+.user-card {
     display: grid;
     grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr 0.5fr;
     grid-template-rows: auto;
     grid-row-gap: 1px;
+
+    background-color: whitesmoke;
+
+}
+
+
+.user-card:hover {
+    cursor: pointer;
+    background-color: rgb(199, 195, 195);
+    transition: 0.2s;
 
 }
 
 .box-entity {
     margin-top: 2px;
     margin-bottom: 40px;
-    background-color: whitesmoke;
     text-align: center;
     align-content: center;
     height: 100%;

@@ -1,0 +1,44 @@
+:host {
+    background-color: whitesmoke;
+    display: block;
+    padding: 30px;
+    height: 100%;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+    margin: 0;
+    margin-left: 10px;
+}
+
+form {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.control-box {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+}
+
+
+#update-button {
+    width: 70%;
+    height: 40px;
+    background-color: lightgray;
+    border: 0px none whitesmoke;
+    border-radius: .25rem;
+  }
+
+  #update-button:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
+
+
+

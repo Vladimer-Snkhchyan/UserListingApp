@@ -9,7 +9,7 @@ export const routes: Routes = [
         {'path':'', component:HomePageComponent},
         {'path':'users/list', component: UsersListPageComponent},
     ]},
-    {'path': 'users/list/add', component: UserDetailsPageComponent},
-    {'path': 'users/list/update', component: UserDetailsPageComponent}
+    {'path': 'users/details/add', component: UserDetailsPageComponent},
+    {'path': 'users/details/update', component: UserDetailsPageComponent}
    
 ];

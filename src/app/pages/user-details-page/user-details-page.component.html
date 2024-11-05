@@ -1,1 +1,75 @@
-<h1>Hi</h1>
+<h1> User Details</h1>
+
+
+<form [formGroup]="userForm">
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Email*</mat-label>
+    <input matInput formControlName="email"  placeholder="Email*" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Date of birth*</mat-label>
+    <input formControlName="date_of_birth" matInput placeholder="Date of birth*" type="date" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>First Name*</mat-label>
+    <input formControlName="first_name"  matInput placeholder="First Name*" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Middle Name*</mat-label>
+    <input formControlName="middle_name" matInput placeholder="Middle Name*" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Last Name*</mat-label>
+    <input formControlName="last_name" matInput placeholder="Last Name*" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Is Activated*</mat-label>
+    <!-- <mat-select>
+      <mat-option value="option">Activated</mat-option>
+      <mat-option value="option">Deactivated</mat-option>
+    </mat-select> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Profile Image Url*</mat-label>
+    <input formControlName="profile_img_url" matInput placeholder="Profile Image Url*" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Phone Number*</mat-label>
+    <input formControlName="phone_number" matInput type="text" placeholder="Phone Number" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Gender*</mat-label>
+    <!-- <mat-select>
+      <mat-option value="option">Male</mat-option>
+      <mat-option value="option">Female</mat-option>
+    </mat-select> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Main Language*</mat-label>
+    <input formControlName="main_language" matInput placeholder="Main Language*" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Nationality*</mat-label>
+    <input formControlName="nationality" matInput placeholder="Nationality*" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
+    <mat-label>Recitations*</mat-label>
+    <input formControlName="recitations" matInput placeholder="Recitations*" />
+  </mat-form-field>
+
+  <div class="control-box">
+    <button id='update-button' type="submit" [disabled]="">Update</button>
+  </div>
+</form>

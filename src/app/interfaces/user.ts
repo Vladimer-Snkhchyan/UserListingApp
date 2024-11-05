@@ -5,7 +5,7 @@ export interface User {
     last_name: string;
     email: string;
     status: boolean; // active or not
-    date_of_birth: Date;
+    date_of_birth: string;
     is_activated: boolean;
     profile_img_url: string;
     phone_number: string;
