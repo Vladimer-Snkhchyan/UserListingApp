@@ -7,7 +7,7 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserRetrieveService {
+export class UserMenagementService {
   users_url = './assets/db/users.json'
 
   constructor(private http: HttpClient) {};

@@ -18,7 +18,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
-    <mat-label>Middle Name*</mat-label>
+    <mat-label>Middle Name</mat-label>
     <input matInput [formControl]="middle_name"  />
   </mat-form-field>
 
@@ -28,10 +28,10 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
-    <mat-label>Is Activated*</mat-label>
-    <mat-select>
-      <mat-option value="activated">Activated</mat-option>
-      <mat-option value="deactivated">Deactivated</mat-option>
+    <mat-label>Is Activated</mat-label>
+    <mat-select [formControl]="is_activated">
+      <mat-option [value]="true">Activated</mat-option>
+      <mat-option [value]="false">Deactivated</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -46,10 +46,10 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
-    <mat-label>Gender*</mat-label>
-    <mat-select>
-      <mat-option value="male">Male</mat-option>
-      <mat-option value="female">Female</mat-option>
+    <mat-label>Gender</mat-label>
+    <mat-select [formControl]="gender">
+      <mat-option [value]="true">Male</mat-option>
+      <mat-option [value]="false">Female</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -69,6 +69,9 @@
   </mat-form-field>
 
   <div class="control-box">
-    <button id='update-button' type="submit" [disabled]="">Update</button>
+    <button (click)="submit()" id='update-button' type="button">
+      @if(is_new_user){Submit}
+      @else {Update}
+    </button>
   </div>
 </form>
