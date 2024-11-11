@@ -5,7 +5,7 @@ import { User } from '../../interfaces/user';
 import { MatFormField,MatLabel, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { UserMenagementService } from '../../services/user-menagement.service';
+import { UserManagementService } from '../../services/user-management.service';
 
 @Component({
   selector: 'app-user-details-page',
@@ -39,7 +39,7 @@ export class UserDetailsPageComponent implements OnInit {
   nationality= new FormControl('');
   recitations= new FormControl('');
 
-  constructor (private route: ActivatedRoute, private userRetrieveService: UserMenagementService) {  };
+  constructor (private route: ActivatedRoute, private userManagementService: UserManagementService) {  };
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -50,9 +50,9 @@ export class UserDetailsPageComponent implements OnInit {
   
   }
 
-  private checkId() {
+  public checkId() {
     // Check if the user exists in the users array
-    this.userRetrieveService.getUserById(this.id).subscribe(
+    this.userManagementService.getUserById(this.id).subscribe(
       user => {
         if (user) {
           this.user = user;
@@ -72,7 +72,7 @@ export class UserDetailsPageComponent implements OnInit {
     );
   }
 
-  private fillForm(user: User){
+  public fillForm(user: User){
     this.email.patchValue(user.email);
     this.first_name.patchValue(user.first_name);
     this.middle_name.patchValue(user.middle_name);
@@ -90,11 +90,11 @@ export class UserDetailsPageComponent implements OnInit {
     this.recitations.patchValue(user.recitations); 
   }
 
-  private updateUser() {
+  public updateUser() {
 
   }
 
-  private createNewUser() {
+  public createNewUser() {
 
   }
 
