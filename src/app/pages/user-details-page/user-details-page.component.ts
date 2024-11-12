@@ -28,21 +28,21 @@ export class UserDetailsPageComponent implements OnInit {
 
   email = new FormControl('', Validators.required );
   first_name= new FormControl('', Validators.required);
-  middle_name= new FormControl('');
+  middle_name= new FormControl('', Validators.required);
   last_name= new FormControl('', Validators.required);
-  date_of_birth = new FormControl<string>(new Date('1999-01-01').toISOString().split('T')[0]);
-  gender = new FormControl<boolean>(true);
-  is_activated= new FormControl<boolean>(false);
-  profile_img_url= new FormControl('');
-  phone_number= new FormControl('', Validators.pattern(/^\d+$/));
-  main_language= new FormControl('');
-  nationality= new FormControl('');
-  recitations= new FormControl('');
+  date_of_birth = new FormControl<string>(new Date('1999-01-01').toISOString().split('T')[0], Validators.required);
+  gender = new FormControl<boolean>(true, Validators.required);
+  is_activated= new FormControl<boolean>(false, Validators.required);
+  profile_img_url= new FormControl('', Validators.required);
+  phone_number= new FormControl('', [Validators.required, Validators.pattern(/^\d+$/)]);
+  main_language= new FormControl('', Validators.required);
+  nationality= new FormControl('', Validators.required);
+  recitations= new FormControl('', Validators.required);
 
   constructor (private route: ActivatedRoute, private userManagementService: UserManagementService) {  };
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = +params['id'];
       console.log('ID:', this.id);
       this.checkId();

@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
 import { PaginatorIntlService } from '../../services/paginator-intl.service';
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-users-list-page',
   standalone: true,
-  imports: [MatIconModule, MatPaginatorModule],
+  imports: [MatIconModule, MatPaginatorModule, MatMenuModule],
   templateUrl: './users-list-page.component.html',
   styleUrls: ['./users-list-page.component.scss'],
   providers: [{ provide: MatPaginatorIntl, useClass: PaginatorIntlService }]
@@ -55,13 +56,18 @@ export class UsersListPageComponent implements OnInit {
     this.updatePaginatedUsers();
   }
 
-  add_new_user() {
-    const max_id = this.users.map(x => +x.id).reduce((a, b) => a > b ? a : b, 0);
-    const new_id = max_id + 1;
-    this.router.navigate(['/users/details/add'], { queryParams: { id: new_id } });
+  openActionPanel() {
+
+  }
+  onActionEdit (user_id: number) {
+    this.router.navigate(['/user/details/', user_id]);
   }
 
-  update_user(user_id: number) {
-    this.router.navigate(['/users/details/update'], { queryParams: { id: user_id } });
+  onActionCancel () {
+
+  }
+
+  add_new_user() {
+    this.router.navigate(['/user/details/']);
   }
 }

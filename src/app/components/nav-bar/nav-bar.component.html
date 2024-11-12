@@ -1,1 +1,6 @@
-<p>nav-bar works!</p>
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a class="destination-box" mat-tab-link disabled>{{destination}}</a>
+    <a mat-tab-link (click)="move_to_home()"> Home </a>
+    <a mat-tab-link (click)="move_to_users_list()">Users</a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

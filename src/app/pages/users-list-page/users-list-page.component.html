@@ -1,4 +1,10 @@
 <div class="users-list">
+    
+    <div class="title"> 
+        <h1 class="page-title"> Users List </h1>
+        <button class="add-new-user-button" (click)="add_new_user()" >Add new user</button>
+    </div>
+
 
     <div class="column-name-container"> 
         <h2 class="column-name"> ID</h2>
@@ -12,20 +18,26 @@
 
     <div  class="user-card-box">
         @for (user of paginatedUsers; track user.id) {
-            <div class = "user-card" (click) = "update_user(user.id)">
+            <div class = "user-card">
                 <p class="box-entity">{{user.id}}</p>
                 <p class="box-entity">{{user.first_name}}</p>
                 <p class="box-entity">{{user.last_name}}</p>
                 <p class="box-entity">{{user.email}}</p>
                 <p class="box-entity">@if(user.status) {Active} @else {Passive}</p>
-                <p class="box-entity"><mat-icon class="action-icon"  aria-hidden="false" aria-label="Example home icon" fontIcon="more_vert"></mat-icon></p>
+
+                <p class="box-entity" >
+                    <mat-icon mat-button [matMenuTriggerFor]="actionMenu" class="action-icon"  aria-hidden="false" aria-label="Example home icon" fontIcon="more_vert"></mat-icon>
+                    <mat-menu xPosition="before" #actionMenu="matMenu">
+                        <button mat-menu-item (click)="onActionEdit(user.id)">Edit</button>
+                        <button mat-menu-item (click)="onActionCancel()">Cancel</button>
+                    </mat-menu>
+                </p>          
             </div>
         }
 
     </div>
 
     <div class="list-scroll-block">
-        <button (click)="add_new_user()" class="add-new-user-button">Add new user</button>
         <mat-paginator 
             class = 'paginator-panel'
             [length]="length"

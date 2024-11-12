@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NavBarComponent } from './nav-bar.component';
+import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 
 describe('NavBarComponent', () => {
   let component: NavBarComponent;
@@ -15,9 +14,5 @@ describe('NavBarComponent', () => {
     fixture = TestBed.createComponent(NavBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

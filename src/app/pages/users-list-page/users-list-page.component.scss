@@ -1,6 +1,5 @@
 
 .users-list {
-    margin-top: 117px;
     display: flex;
     flex-direction: column;
     margin-left: 20px;
@@ -9,6 +8,37 @@
     border: white;
     border-radius: 10px 10px 10px 10px;
 
+}
+
+.title { 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 30px;
+    padding-right: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-new-user-button {
+    width: 100%;
+    height: 70%;
+    background-color: whitesmoke;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+.add-new-user-button:hover {
+    cursor: pointer;
+    opacity: 50%;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
 }
 
 .column-name-container {
@@ -47,12 +77,12 @@
 }
 
 
-.user-card:hover {
-    cursor: pointer;
-    background-color: rgb(199, 195, 195);
-    transition: 0.2s;
+// .user-card:hover {
+//     cursor: pointer;
+//     background-color: rgb(199, 195, 195);
+//     transition: 0.2s;
 
-}
+// }
 
 .box-entity {
     margin-top: 2px;
@@ -73,28 +103,6 @@
     margin-top: 3px;
     background-color: whitesmoke;
     display: flex;
-}
-
-.add-new-user-button {
-    flex: 1;
-    background-color: whitesmoke;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: .25rem .25rem 0 0;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    color: rgba(0, 0, 0, 0.85);
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0;
-  }
-
-
-.add-new-user-button:hover {
-    cursor: pointer;
-    opacity: 50%;
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
 }
 
 .paginator-panel {
