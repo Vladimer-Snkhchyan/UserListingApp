@@ -72,34 +72,31 @@ describe ('Users List Page', () => {
       });
 
       it('Testing add new user feature with correct new id', () => {
-        
-        component.users = [{id: 3,
-            first_name: "Claire",
-            middle_name: "Ann",
-            last_name: "Brown",
-            email: "claire.brown@example.com",
-            status: true,
-            date_of_birth: "1993-11-05T00:00:00.000Z",
-            is_activated: true,
-            profile_img_url: "https://example.com/images/claire.jpg",
-            phone_number: "+44-789-555-0123",
-            gender: false,
-            main_language: "French",
-            nationality: "British",
-            recitations: "Dance, Photography, Sketching",
-          }];
         component.add_new_user();   
-        
-        
-      //   expect(routerSpy.navigate).toHaveBeenCalledWith(['/user/details/add'], { queryParams: { id: 4 } });
-      // });
+        expect(routerSpy.navigate).toHaveBeenCalledWith(['/user/details/']);
+      });
 
-      // it('Navigate to update user page with correct user id', () => {
+      it('Navigate to update user page with correct user id', () => {
+        component.users = [{id: 3,
+          first_name: "Claire",
+          middle_name: "Ann",
+          last_name: "Brown",
+          email: "claire.brown@example.com",
+          status: true,
+          date_of_birth: "1993-11-05T00:00:00.000Z",
+          is_activated: true,
+          profile_img_url: "https://example.com/images/claire.jpg",
+          phone_number: "+44-789-555-0123",
+          gender: false,
+          main_language: "French",
+          nationality: "British",
+          recitations: "Dance, Photography, Sketching",
+        }];
 
-      //   const userId = 5;
-      //   component.update_user(userId);
+        const userId = 3;
+        component.update_user(userId);
       
-      //   expect(routerSpy.navigate).toHaveBeenCalledWith(['/user/details/update'], { queryParams: { id: userId } });
-      // });
+        expect(routerSpy.navigate).toHaveBeenCalledWith(["/user/details/", userId]);
+      });
 
 });

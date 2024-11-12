@@ -55,19 +55,9 @@ export class UsersListPageComponent implements OnInit {
     this.page_size = pageEvent.pageSize;
     this.updatePaginatedUsers();
   }
+  onActionEdit (user_id: number) {this.update_user(user_id)}
 
-  openActionPanel() {
-
-  }
-  onActionEdit (user_id: number) {
-    this.router.navigate(['/user/details/', user_id]);
-  }
-
-  onActionCancel () {
-
-  }
-
-  add_new_user() {
-    this.router.navigate(['/user/details/']);
-  }
+  add_new_user() { this.router.navigate(['/user/details/']);}
+  update_user (user_id: number) { this.router.navigate(['/user/details/', user_id]);}
+  
 }

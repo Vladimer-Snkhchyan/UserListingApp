@@ -13,7 +13,7 @@ describe('UserDetailsPageComponent', () => {
 
   beforeEach(() => {
     activatedRouteMock = {
-      queryParams: of({ id: 3 })
+      params: of({ id: 3 })
     };
 
     userManagementServiceMock = {
@@ -36,8 +36,10 @@ describe('UserDetailsPageComponent', () => {
 });
 
   describe('ngOnInit', () => {
-    it('should set id from route parameters and call checkId', () => {
-      jest.spyOn(component, 'checkId');
+    it('Should set id from route parameters and call checkId', () => {
+      jest.spyOn(component, 'checkId'); 
+
+
       component.ngOnInit();
 
       expect(component.id).toBe(3);
@@ -46,8 +48,6 @@ describe('UserDetailsPageComponent', () => {
   });
 
   describe('checkId', () => {
-
-
     it('Should set user and call fillForm if user is found', () => {
       const mockUser: User =   {
         id: 3,

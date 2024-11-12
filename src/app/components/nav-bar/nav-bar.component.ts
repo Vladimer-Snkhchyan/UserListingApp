@@ -10,7 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
-  destination: string = '';
+  _destination!: string;
 
   constructor(private router: Router) {};
 
@@ -19,13 +19,13 @@ export class NavBarComponent {
       if (event instanceof NavigationEnd) {
         // Check the router URL to set the destination
         if (this.router.url === '/') {
-          this.destination = 'Home';
+          this._destination = 'Home';
         } else if (this.router.url.endsWith('/users/list')) {
-          this.destination = 'Users List';
+          this._destination = 'Users List';
         } else if (this.router.url.includes('/user/details')) {
-          this.destination = 'User Details';
+          this._destination = 'User Details';
         } else {
-          this.destination = 'You are lost';
+          this._destination = 'You are lost';
         }
       }
     });
@@ -33,12 +33,14 @@ export class NavBarComponent {
 
   move_to_home() {   
     this.router.navigate(['/']);
-    this.destination = 'Home';
+    this._destination = 'Home';
    };
 
   move_to_users_list() {   
     this.router.navigate(['/users/list']);
-    this.destination = 'Users List';
+    this._destination = 'Users List';
    }
+
+  get destination() { return this._destination};
 
 }
