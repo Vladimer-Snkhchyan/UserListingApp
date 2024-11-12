@@ -5,18 +5,19 @@
 
 a {
     background-color: lightgray;
-    color: whitesmoke!important;
     font-size: large;
 }
 
 nav {
     margin-bottom: 20px;
-    color: white;
 }
 
 .destination-box {
     max-width: 15%;
-    background-color: darkgray;
+    background-color: black;
     font-size: 24px;
-    color: white!important;
+}
+
+.mat-mdc-tab-link .mdc-tab__text-label {
+    color: #ffffff !important;
 }
