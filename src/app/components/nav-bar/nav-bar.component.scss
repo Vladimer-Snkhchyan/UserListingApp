@@ -1,23 +1,14 @@
-:host {
-    min-height: 100%;
-    background-color: lightgray;
+.menu {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-a {
-    background-color: lightgray;
-    font-size: large;
+:host ::ng-deep mat-toolbar {
+    background-color: darkgray;
+
 }
 
-nav {
-    margin-bottom: 20px;
-}
-
-.destination-box {
-    max-width: 15%;
-    background-color: black;
-    font-size: 24px;
-}
-
-.mat-mdc-tab-link .mdc-tab__text-label {
-    color: #ffffff !important;
+#destination {
+    color: white;
+    font-size: 30px;
 }

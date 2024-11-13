@@ -5,6 +5,7 @@
         <button class="add-new-user-button" (click)="add_new_user()" >Add new user</button>
     </div>
 
+    <div class="scroll-part">
 
     <div class="column-name-container"> 
         <h2 class="column-name"> ID</h2>
@@ -12,7 +13,7 @@
         <h2 class="column-name">Last Name </h2>
         <h2 class="column-name">email</h2>
         <h2 class="column-name">Status</h2>
-        <h2 class="column-name">Action</h2>
+        <h2 class="action-column column-name">Action</h2>
 
     </div>
 
@@ -25,8 +26,8 @@
                 <p class="box-entity">{{user.email}}</p>
                 <p class="box-entity">@if(user.status) {Active} @else {Passive}</p>
 
-                <p class="box-entity" >
-                    <mat-icon mat-button [matMenuTriggerFor]="actionMenu" class="action-icon"  aria-hidden="false" aria-label="Example home icon" fontIcon="more_vert"></mat-icon>
+                <p class="action-column box-entity" >
+                    <mat-icon mat-button [matMenuTriggerFor]="actionMenu" class="action-icon"  aria-hidden="false" fontIcon="more_vert"></mat-icon>
                     <mat-menu xPosition="before" #actionMenu="matMenu">
                         <button mat-menu-item (click)="onActionEdit(user.id)">Edit</button>
                         <button mat-menu-item>Cancel</button>
@@ -50,4 +51,8 @@
         </mat-paginator>
 
     </div>
+
+    </div>
+
+
 </div>

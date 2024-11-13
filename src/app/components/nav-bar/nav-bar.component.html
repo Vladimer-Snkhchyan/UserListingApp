@@ -1,6 +1,20 @@
-<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+<!-- <nav mat-tab-nav-bar [tabPanel]="tabPanel">
     <a class="destination-box" mat-tab-link disabled>{{destination}}</a>
     <a mat-tab-link (click)="move_to_home()"> Home </a>
     <a mat-tab-link (click)="move_to_users_list()">Users</a>
 </nav>
-<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel> -->
+
+<mat-toolbar>
+    <button  mat-button [matMenuTriggerFor]="actionMenu" mat-icon-button class="menu" aria-label="Example icon-button with menu icon">
+      <mat-icon >menu</mat-icon>
+        <mat-menu xPosition="after"  #actionMenu="matMenu">
+            <button mat-menu-item (click)="move_to_home()">Home</button>
+            <button mat-menu-item (click)="move_to_users_list()">Users List</button>
+        </mat-menu>
+
+    </button>
+
+    <span id="destination">{{destination}}</span>
+    
+</mat-toolbar>

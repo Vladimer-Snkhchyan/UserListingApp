@@ -4,36 +4,50 @@ import { ActivatedRoute } from '@angular/router';
 import { UserManagementService } from '../services/user-management.service';
 import { UserDetailsPageComponent } from '../pages/user-details-page/user-details-page.component';
 import { User } from '../interfaces/user';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 describe('UserDetailsPageComponent', () => {
   let component: UserDetailsPageComponent;
   let userManagementServiceMock: any;
   let activatedRouteMock: any;
+  let fb: FormBuilder;
 
   beforeEach(() => {
     activatedRouteMock = {
       params: of({ id: 3 })
     };
-
+  
     userManagementServiceMock = {
       getUserById: jest.fn()
     };
-
+  
+    fb = new FormBuilder();  // Initialize FormBuilder
+  
     TestBed.configureTestingModule({
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteMock },
-        { provide: UserManagementService, useValue: userManagementServiceMock }
+        { provide: UserManagementService, useValue: userManagementServiceMock },
+        { provide: FormBuilder, useValue: fb }
       ]
     });
-
-    component = new UserDetailsPageComponent(activatedRouteMock, userManagementServiceMock);
-
-    // const fixture = TestBed.createComponent(UserDetailsPageComponent);
-    // component = fixture.componentInstance;
-    // fixture.detectChanges();  // Trigger initial lifecycle hooks
   
-});
+    // Initialize the component
+    component = new UserDetailsPageComponent(activatedRouteMock, userManagementServiceMock, fb);
+    component.userForm = fb.group({
+      email: [''],
+      first_name: [''],
+      middle_name: [''],
+      last_name: [''],
+      date_of_birth: [''],
+      gender: [false],
+      is_activated: [false],
+      profile_img_url: [''],
+      phone_number: [''],
+      main_language: [''],
+      nationality: [''],
+      recitations: ['']
+    });
+  });
 
   describe('ngOnInit', () => {
     it('Should set id from route parameters and call checkId', () => {
@@ -117,22 +131,22 @@ describe('UserDetailsPageComponent', () => {
 
       component.fillForm(mockUser);
 
-      expect(component.email.value).toBe(mockUser.email);
-      expect(component.first_name.value).toBe(mockUser.first_name);
-      expect(component.middle_name.value).toBe(mockUser.middle_name);
-      expect(component.last_name.value).toBe(mockUser.last_name);
-
+      expect(component.userForm.get('email')?.value).toBe(mockUser.email);
+      expect(component.userForm.get('first_name')?.value).toBe(mockUser.first_name);
+      expect(component.userForm.get('middle_name')?.value).toBe(mockUser.middle_name);
+      expect(component.userForm.get('last_name')?.value).toBe(mockUser.last_name);
+      
       const date = new Date(mockUser.date_of_birth);
-      const formattedDate = date.toISOString().split('T')[0]
-  
-      expect(component.date_of_birth.value).toBe(formattedDate);
-      expect(component.gender.value).toBe(mockUser.gender);
-      expect(component.is_activated.value).toBe(mockUser.is_activated);
-      expect(component.profile_img_url.value).toBe(mockUser.profile_img_url);
-      expect(component.phone_number.value).toBe(mockUser.phone_number);
-      expect(component.main_language.value).toBe(mockUser.main_language);
-      expect(component.nationality.value).toBe(mockUser.nationality);
-      expect(component.recitations.value).toBe(mockUser.recitations);
+      const formattedDate = date.toISOString().split('T')[0];
+      
+      expect(component.userForm.get('date_of_birth')?.value).toBe(formattedDate);
+      expect(component.userForm.get('gender')?.value).toBe(mockUser.gender);
+      expect(component.userForm.get('is_activated')?.value).toBe(mockUser.is_activated);
+      expect(component.userForm.get('profile_img_url')?.value).toBe(mockUser.profile_img_url);
+      expect(component.userForm.get('phone_number')?.value).toBe(mockUser.phone_number);
+      expect(component.userForm.get('main_language')?.value).toBe(mockUser.main_language);
+      expect(component.userForm.get('nationality')?.value).toBe(mockUser.nationality);
+      expect(component.userForm.get('recitations')?.value).toBe(mockUser.recitations);
     });
   });
 

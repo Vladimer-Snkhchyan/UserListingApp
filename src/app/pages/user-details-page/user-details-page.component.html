@@ -1,35 +1,37 @@
 <h1> User Details</h1>
 
 
-<form>
+<form [formGroup]="userForm" (ngSubmit)="submit()" (ngModelChange)="formChange()">
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Email</mat-label>
-    <input matInput [formControl]="email" />
+    <input matInput formControlName="email" />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Date of birth</mat-label>
-    <input matInput [formControl]="date_of_birth" type="date" />
+    <input matInput [matDatepicker]="picker" formControlName="date_of_birth" type="string" />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>First Name</mat-label>
-    <input matInput [formControl]="first_name" />
+    <input matInput formControlName="first_name" />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Middle Name</mat-label>
-    <input matInput [formControl]="middle_name"  />
+    <input matInput formControlName="middle_name"  />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Last Name</mat-label>
-    <input  matInput [formControl]="last_name" />
+    <input  matInput formControlName="last_name" />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Is Activated</mat-label>
-    <mat-select [formControl]="is_activated">
+    <mat-select formControlName="is_activated">
       <mat-option [value]="true">Activated</mat-option>
       <mat-option [value]="false">Deactivated</mat-option>
     </mat-select>
@@ -37,17 +39,17 @@
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Profile Image Url</mat-label>
-    <input matInput [formControl]="profile_img_url" />
+    <input matInput formControlName="profile_img_url" />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Phone Number</mat-label>
-    <input matInput [formControl]="phone_number"  type="text"/>
+    <input matInput formControlName="phone_number"  type="text"/>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Gender</mat-label>
-    <mat-select [formControl]="gender">
+    <mat-select formControlName="gender">
       <mat-option [value]="true">Male</mat-option>
       <mat-option [value]="false">Female</mat-option>
     </mat-select>
@@ -55,21 +57,21 @@
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Main Language</mat-label>
-    <input  matInput [formControl]="main_language" />
+    <input  matInput formControlName="main_language" />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Nationality</mat-label>
-    <input matInput [formControl]="nationality"  />
+    <input matInput formControlName="nationality"  />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="control-box" floatLabel="auto">
     <mat-label>Recitations</mat-label>
-    <input matInput [formControl]="recitations"  />
+    <input matInput formControlName="recitations"  />
   </mat-form-field>
 
   <div class="control-box">
-    <button (click)="submit()" id='update-button' type="button">
+    <button id='update-button' type="submit" [disabled]="isSubmitDisabled()" >
       @if(is_new_user){Submit}
       @else {Update}
     </button>
