@@ -6,12 +6,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PaginatorIntlService } from '../../services/paginator-intl.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button'
 
 @Component({
   selector: 'app-users-list-page',
   standalone: true,
-  imports: [MatIconModule, MatPaginatorModule, MatMenuModule],
+  imports: [MatTableModule, MatButtonModule, MatIconModule, MatPaginatorModule, MatMenuModule],
   templateUrl: './users-list-page.component.html',
   styleUrls: ['./users-list-page.component.scss'],
   providers: [{ provide: MatPaginatorIntl, useClass: PaginatorIntlService }]
@@ -24,8 +25,21 @@ export class UsersListPageComponent implements OnInit {
   page_size_options: number[] = [1, 5, 10];
   paginatedUsers: User[] = [];
   url_to_db!: string;
+  displayedColumns = ['id', 'first_name', 'last_name', 'email', 'status', 'action'];
+  columnsToDisplay: string[] = this.displayedColumns.slice();
 
   constructor(private router: Router, private http: HttpClient) { };
+
+  format_column_name(input: string): string {
+    if (!input) return input;
+    
+    let formatted = input.replace(/_/g, ' ');
+    
+    formatted = formatted.charAt(0).toUpperCase() + formatted.slice(1);
+    
+    return formatted;
+}
+
 
   ngOnInit() {
     this.loadUsers();

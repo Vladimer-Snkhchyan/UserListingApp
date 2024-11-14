@@ -1,8 +1,16 @@
+:host ::ng-deep {
+    --mat-table-row-item-outline-color: white
+
+}
+
+:host body {
+    background-color: whitesmoke;
+}
+
 .users-list {
     display: flex;
     flex-direction: column;
     margin: 0 20px;
-    background-color: white;
     border-radius: 10px;
 }
 
@@ -41,51 +49,27 @@
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+    border-radius: 0.50rem;
 
 }
 
-.column-name-container {
-    display: flex;
-    justify-content: space-around;
-    background-color: lightgray;
-    border-radius: 10px 10px 0 0;
-    margin-bottom: 2px;
-    min-width: 1500px;
+.user-box {
+    min-width: min(300dvw, 1500px);
+    padding-bottom: 3px;
 }
 
-.column-name {
-    min-width: 200px;
+.column-header {
+    background-color: lightgray !important; 
+    font-size: 22px;
+    font-weight: bold;
     text-align: center;
-    color: black;
 }
 
-.action-column {
-    width: 100px;
-}
-
-.user-card-box {
-    display: flex;
-    flex-direction: column;
-    min-width: 1500px;
-}
-
-.user-card {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: whitesmoke;
-
-    min-height: 70px;
-    margin-bottom: 2px;
-}
-
-.box-entity {
-    min-width: 250px;
+.column-entity { 
     text-align: center;
-    font-size: 19px;
-    margin: 0;
-
+    background-color: whitesmoke !important;
 }
+
 
 .action-icon:hover {
     cursor: pointer;
@@ -94,10 +78,10 @@
 
 .list-scroll-block,
 .paginator-panel {
-    background-color: whitesmoke;
+    background-color: whitesmoke !important; 
     display: flex;
     justify-content: end;
-    min-width: 1500px;
+    min-width: min(1500px, 300dvw);
 }
 
 @media (max-width: 1500px) {
@@ -105,8 +89,4 @@
         justify-content: start;
     }
     
-}
-
-.paginator-panel {
-    margin-top: 5px;
 }
